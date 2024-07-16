@@ -1,0 +1,20 @@
+# Binários
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Arquivos de construção
+/_test
+
+# Diretório de dependências
+/vendor/
+
+# Arquivos de log
+/log/
+
+# Arquivos de configuração locais
+*.env
+
+# Default ignored files
+.idea
