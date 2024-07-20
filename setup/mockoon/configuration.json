@@ -1,0 +1,100 @@
+{
+    "uuid": "138fbdd3-cf0d-4a2c-9d8f-5d28e75769e9",
+    "lastMigration": 32,
+    "name": "datasetmock",
+    "endpointPrefix": "",
+    "latency": 0,
+    "port": 3002,
+    "hostname": "",
+    "folders": [],
+    "routes": [
+        {
+            "uuid": "50fe1eb0-2983-4590-923e-6ecf361c29b5",
+            "type": "http",
+            "documentation": "",
+            "method": "get",
+            "endpoint": "api/quote/:ticker",
+            "responses": [
+                {
+                    "uuid": "8d9bc21f-c3b3-4e33-9f62-39c5973d08ad",
+                    "body": "{\"results\":[{\"currency\":\"BRL\",\"shortName\":\"BBSEGURIDADEON      NM\",\"longName\":\"BB Seguridade Participações S.A.\",\"regularMarketChange\":0.08,\"regularMarketChangePercent\":0.23600000000000002,\"regularMarketTime\":\"2024-07-15T20:07:59.000Z\",\"regularMarketPrice\":34.04,\"regularMarketDayHigh\":0,\"regularMarketDayRange\":\"0 - 0\",\"regularMarketDayLow\":0,\"regularMarketVolume\":0,\"regularMarketPreviousClose\":33.96,\"regularMarketOpen\":33.25,\"fiftyTwoWeekRange\":\"0 - 0\",\"fiftyTwoWeekLow\":0,\"fiftyTwoWeekHigh\":0,\"symbol\":\"BBSE3\",\"priceEarnings\":8.296889643546457,\"earningsPerShare\":4.0931046,\"logourl\":\"https://s3-symbol-logo.tradingview.com/banco-do-brasil--big.svg\"}],\"requestedAt\":\"2024-07-16T01:32:33.166Z\",\"took\":\"0ms\"}",
+                    "latency": 0,
+                    "statusCode": 200,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "yourtoken",
+                            "invert": false,
+                            "operator": "equals"
+                        }
+                    ],
+                    "rulesOperator": "OR",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": true,
+                    "crudKey": "id",
+                    "callbacks": []
+                }
+            ],
+            "responseMode": null
+        }
+    ],
+    "rootChildren": [
+        {
+            "type": "route",
+            "uuid": "50fe1eb0-2983-4590-923e-6ecf361c29b5"
+        }
+    ],
+    "proxyMode": false,
+    "proxyHost": "",
+    "proxyRemovePrefix": false,
+    "tlsOptions": {
+        "enabled": false,
+        "type": "CERT",
+        "pfxPath": "",
+        "certPath": "",
+        "keyPath": "",
+        "caPath": "",
+        "passphrase": ""
+    },
+    "cors": true,
+    "headers": [
+        {
+            "key": "Content-Type",
+            "value": "application/json"
+        },
+        {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+        },
+        {
+            "key": "Access-Control-Allow-Methods",
+            "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+        },
+        {
+            "key": "Access-Control-Allow-Headers",
+            "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+        }
+    ],
+    "proxyReqHeaders": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "proxyResHeaders": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "data": [],
+    "callbacks": []
+}

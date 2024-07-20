@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "wait-for-backend",
+            "type": "shell",
+            "command": "sleep 10",
+            "problemMatcher": []
+        },
+        {
+            "label": "npm: start",
+            "type": "shell",
+            "command": "PORT=3001 npm start",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "focus": false
+            },
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                "regexp": "^.+$",
+                "file": 1,
+                "location": 2,
+                "message": 3
+                },
+                "background": {
+                "activeOnStart": true,
+                "beginsPattern": "^.*Compiling.*$",
+                "endsPattern": "^.*Compiled successfully.*$"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/ticker-trick-frontend"
+            }
+        }
+    ]
+}

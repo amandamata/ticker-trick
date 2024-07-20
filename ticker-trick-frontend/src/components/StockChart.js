@@ -11,7 +11,6 @@ import {
 } from "recharts";
 
 const StockChart = ({ data }) => {
-  // Formatar os dados para uso no gráfico
   const chartData = [
     {
       name: "Previous Close",

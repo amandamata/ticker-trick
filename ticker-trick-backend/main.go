@@ -13,10 +13,9 @@ import (
 
 func main() {
 	godotenv.Load()
-
-	
+	frontOrigin := os.Getenv("FRONT_URL")
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{ frontOrigin },
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
 		AllowedHeaders:   []string{"Authorization", "Content-Type"},
 		AllowCredentials: true,
