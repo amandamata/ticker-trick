@@ -1,0 +1,13 @@
+{
+  "title": "TickerTrack",
+  "value": "Valor",
+  "input": "Insira o ticker de uma ação, por exemplo: BBSE3",
+  "fetchButton": "Buscar",
+  "loading": "Carregando...",
+  "error": "Ocorreu um erro ao carregar os dados",
+  "previousClose": "Fechamento",
+  "currentPrice": "Preço Atual",
+  "priceEarnings": "Preço/Lucro",
+  "earningsPerShare": "Lucro Por Ação",
+  "regularMarketOpen": "Abertura"
+}

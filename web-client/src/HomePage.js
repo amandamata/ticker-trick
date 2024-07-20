@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getStockData } from "./services/api";
 import StockChart from "./components/StockChart";
 
-const HomePage = () => {
+function HomePage () {
+  const { t } = useTranslation();
   const [ticker, setTicker] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -15,7 +17,7 @@ const HomePage = () => {
       const response = await getStockData(ticker);
       setData(response.results[0]);
     } catch (error) {
-      setError("Error fetching stock data. Please try again.");
+      setError(t('error'));
     } finally {
       setLoading(false);
     }
@@ -23,13 +25,13 @@ const HomePage = () => {
 
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
-      <h1>Stock Data Fetcher</h1>
+      <h1>{t('title')}</h1>
       <div>
         <input
           type="text"
           value={ticker}
           onChange={(e) => setTicker(e.target.value)}
-          placeholder="Enter stock ticker"
+          placeholder={t('input')}
           style={{
             padding: "10px",
             width: "calc(100% - 22px)",
@@ -40,10 +42,10 @@ const HomePage = () => {
           onClick={handleFetchData}
           style={{ padding: "10px", width: "100%" }}
         >
-          Fetch Data
+          {t('fetchButton')}
         </button>
       </div>
-      {loading && <p>Loading...</p>}
+      {loading && <p>{ t('loading')}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {data && (
         <div style={{ marginTop: "20px" }}>
