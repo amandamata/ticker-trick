@@ -7,12 +7,12 @@ TickerTrick is a fun and interactive web application to fetch and display stock 
 ```plaintext
 ticker-trick/
 │
-├── ticker-trick-backend/
+├── api-server/
 │   ├── src/
 │   ├── .env
 │   └── main.go
 │
-├── ticker-trick-frontend/
+├── web-client/
 │   ├── src/
 │   └── index.js
 │
@@ -23,7 +23,7 @@ ticker-trick/
 ## Setup
 
 ### Environment Variables
-Create a .env file in the ticker-trick-backend directory with the following content:
+Create a .env file in the api-server directory with the following content:
 
 ```dotenv
 TOKEN=yourtoken
@@ -34,21 +34,7 @@ PRD_DATASET_URL="https://brapi.dev/"
 DEV_DATASET_URL="http://localhost:3002/"
 ```
 
-Replace `yourtoken` with your actual API token. If you are using Docker Compose(bellow), it is not necessary to change the API key.
-
-### Docker Compose
-To simplify the setup and execution of the local development environment, a Docker Compose configuration is provided. This allows you to easily start the dataset mock, and there is no need to obtain an API key from brapi.dev.
-
-Running the Environment
-Navigate to the project's root directory.
-Run docker-compose up -d to start the services in the background:
-```sh
-docker compose -f setup/docker-compose.yaml up -d
-```
-To stop the services, use docker-compose down:
-```sh
-docker compose -f setup/docker-compose.yaml down
-```
+Replace `yourtoken` with your actual API token. If you are using Docker Compose(bellow) or `make run-all`, it is not necessary to change the API key.
 
 ### Using Makefile
 A Makefile is provided to automate the setup and running of the project.
@@ -59,20 +45,41 @@ This command will download the Go dependencies for the backend and install the n
 ```sh
 make setup
 ```
-2. Run Backend:
+2. Run all including mock server
+```sh
+make run-all
+```
+3. Run Backend:
 This command will start the backend server:
 ```sh
 make run-backend
 ```
-3. Run Frontend:
+4. Run Frontend:
 This command will start the frontend development server:
 ```sh
 make run-frontend
 ```
-4. Run Backend and Frontend Together:
+5. Run Backend and Frontend Together:
 This command will start both the backend and frontend servers concurrently.
 ```sh
 make run
+```
+
+### Docker Compose
+To simplify the setup and execution of the local development environment, a Docker Compose configuration is provided. This allows you to easily start the dataset mock, and there is no need to obtain an API key from brapi.dev.
+
+Running the Environment
+
+You can run `make run-all`  (this will automatically download and start the mock server) or
+
+Navigate to the project's root directory.
+Run docker-compose up -d to start the services in the background:
+```sh
+docker compose -f setup/docker-compose.yaml up -d
+```
+To stop the services, use docker-compose down:
+```sh
+docker compose -f setup/docker-compose.yaml down
 ```
 
 ### Usage

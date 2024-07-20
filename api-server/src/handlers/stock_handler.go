@@ -1,11 +1,11 @@
 package handlers
 
 import (
+	"api-server/src/services"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"strings"
-	"ticker-trick-backend/src/services"
 )
 
 func StockHandler(w http.ResponseWriter, r *http.Request) {

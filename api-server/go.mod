@@ -1,4 +1,4 @@
-module ticker-trick-backend
+module api-server
 
 go 1.21.7
 

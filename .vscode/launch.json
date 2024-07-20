@@ -6,7 +6,7 @@
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:3001",
-      "webRoot": "${workspaceFolder}/ticker-trick-frontend",
+      "webRoot": "${workspaceFolder}/web-client",
       "sourceMapPathOverrides": {
         "webpack:///src/*": "${webRoot}/*"
       },
@@ -17,8 +17,8 @@
       "type": "go",
       "request": "launch",
       "mode": "auto",
-      "program": "${workspaceFolder}/ticker-trick-backend/main.go",
-      "envFile": "${workspaceFolder}/ticker-trick-backend/.env"
+      "program": "${workspaceFolder}/api-server/main.go",
+      "envFile": "${workspaceFolder}/api-server/.env"
     }
   ],
   "compounds": [

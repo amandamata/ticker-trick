@@ -1,0 +1,14 @@
+*.exe
+*.dll
+*.so
+*.dylib
+
+/_test
+
+/src/vendor/
+
+/log/
+
+*.env
+
+.idea

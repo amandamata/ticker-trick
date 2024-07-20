@@ -35,7 +35,7 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceFolder}/ticker-trick-frontend"
+                "cwd": "${workspaceFolder}/web-client"
             }
         }
     ]

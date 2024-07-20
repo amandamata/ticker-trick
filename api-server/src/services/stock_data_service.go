@@ -1,12 +1,12 @@
 package services
 
 import (
+	"api-server/src/models"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
-	"ticker-trick-backend/src/models"
 )
 
 func GetStockData(ticker string) (*models.StockData, error) {

@@ -1,11 +1,11 @@
 package main
 
 import (
+	"api-server/src/handlers"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
-	"ticker-trick-backend/src/handlers"
 
 	"github.com/joho/godotenv"
 	"github.com/rs/cors"

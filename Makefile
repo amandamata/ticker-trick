@@ -1,14 +1,14 @@
 # Makefile for TickerTrick project
 
 # Variables
-BACKEND_DIR := ticker-trick-backend
-FRONTEND_DIR := ticker-trick-frontend
+BACKEND_DIR := api-server
+FRONTEND_DIR := web-client
 ENV_FILE := .env
 GO_CMD := go
 NPM_CMD := npm
 
 # Targets
-.PHONY: all setup-backend setup-frontend setup run-backend run-frontend run clean
+.PHONY: all setup-backend setup-frontend setup run-backend run-frontend run run-all clean
 
 # Default target
 all: setup run
@@ -41,14 +41,17 @@ run-frontend:
 	cd $(FRONTEND_DIR) && PORT=3001 $(NPM_CMD) start
 
 # Run both backend and frontend
-run: 
+run:
 	@echo "Running backend and frontend..."
 	make -j 2 run-backend run-frontend
+
+# Run all services including Docker Compose
+run-all:
+	@echo "Running all services including Docker Compose..."
+	docker compose -f setup/docker-compose.yaml up -d
+	make run
 
 # Clean up
 clean:
 	@echo "Cleaning up..."
-	cd $(BACKEND_DIR) && $(GO_CMD) clean
-	cd $(FRONTEND_DIR) && $(NPM_CMD) clean
-	rm -rf $(BACKEND_DIR)/$(ENV_FILE)
-
+	docker compose -f setup/docker-compose.yaml down
