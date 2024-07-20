@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^5.16.4",
     "axios": "^1.7.2",
     "eslint-config-react-app": "^7.0.1",
     "i18next": "^23.12.2",

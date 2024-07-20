@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { getStockData } from "./services/api";
+import { TextField, Button, CircularProgress, Typography, Container, Box } from '@mui/material';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 import StockChart from "./components/StockChart";
 
-function HomePage () {
+const HomePage = () => {
+
   const { t } = useTranslation();
   const [ticker, setTicker] = useState("");
   const [data, setData] = useState(null);
@@ -24,35 +27,43 @@ function HomePage () {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
-      <h1>{t('title')}</h1>
-      <div>
-        <input
-          type="text"
+    <Container maxWidth="sm">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        minHeight="100vh"
+      >
+        <Typography variant="h4" component="h1" gutterBottom>
+          {t("title")}
+        </Typography>
+        <TextField
+          fullWidth
+          label={t("input")}
+          variant="outlined"
           value={ticker}
           onChange={(e) => setTicker(e.target.value)}
-          placeholder={t('input')}
-          style={{
-            padding: "10px",
-            width: "calc(100% - 22px)",
-            marginBottom: "10px",
-          }}
+          style={{ marginBottom: "10px" }}
         />
-        <button
+        <Button
           onClick={handleFetchData}
-          style={{ padding: "10px", width: "100%" }}
+          variant="contained"
+          color="primary"
+          fullWidth
+          style={{ marginBottom: "20px" }}
         >
-          {t('fetchButton')}
-        </button>
-      </div>
-      {loading && <p>{ t('loading')}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {data && (
-        <div style={{ marginTop: "20px" }}>
-          <StockChart data={data} />
-        </div>
-      )}
-    </div>
+          {t("fetchButton")}
+        </Button>
+        {loading && <CircularProgress />}
+        {error && <Typography color="error">{error}</Typography>}
+        {data && (
+          <Box marginTop={4} width="100%">
+            <StockChart data={data} />
+          </Box>
+        )}
+      </Box>
+    </Container>
   );
 };
 
