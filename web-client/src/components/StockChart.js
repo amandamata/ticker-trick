@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import {
   LineChart,
   Line,
@@ -45,4 +46,10 @@ const StockChart = ({ data }) => {
   );
 };
 
+StockChart.propTypes = {
+  data: PropTypes.shape({
+    regularMarketOpen: PropTypes.number.isRequired,
+    regularMarketPrice: PropTypes.number.isRequired,
+  }).isRequired,
+};
 export default StockChart;

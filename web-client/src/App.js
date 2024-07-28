@@ -17,7 +17,7 @@ const App = () => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: theme.palette.background.default
+            backgroundColor: theme.palette.background.secondary,
         }}
         >
           <Page />

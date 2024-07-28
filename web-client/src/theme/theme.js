@@ -13,13 +13,11 @@ const theme = createTheme({
     },
     background: {
       default: "#f8bbd0",
+      secondary: "#fafafa",
     },
     text: {
       primary: "#000000",
       secondary: "#757575",
-    },
-    background: {
-      default: "#fafafa",
     },
   },
 });
