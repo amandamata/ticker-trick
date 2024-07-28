@@ -2,7 +2,7 @@
   "title": "TickerTrack",
   "value": "Value",
   "input": "Enter a stock ticker, for example: BBSE3",
-  "fetchButton": "Fetch",
+  "fetchButton": "Search",
   "loading": "Loading...",
   "error": "An error occurred while loading the data",
   "previousClose": "Previous close",

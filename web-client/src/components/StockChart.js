@@ -12,27 +12,20 @@ import {
 } from "recharts";
 
 const StockChart = ({ data }) => {
-  const { t } = useTranslation();
+  const { t: translation } = useTranslation();
   const chartData = [
     {
-      name: t('previousClose'),
-      value: data.regularMarketPreviousClose,
+      name: translation("regularMarketOpen"),
+      value: data.regularMarketOpen,
     },
     {
-      name: t('currentPrice'),
+      name: translation("currentPrice"),
       value: data.regularMarketPrice,
     },
   ];
   return (
     <div>
-      <h2>
-        {data.longName} ({data.symbol})
-      </h2>
-      <img
-        src={data.logourl}
-        alt={`${data.shortName} logo`}
-        style={{ height: "50px" }}
-      />
+      
       <ResponsiveContainer width="100%" height={300}>
         <LineChart
           data={chartData}
@@ -53,13 +46,13 @@ const StockChart = ({ data }) => {
       </ResponsiveContainer>
       <div>
         <p>
-          {t("priceEarnings")}: {data.priceEarnings.toFixed(2)}
+          {translation("priceEarnings")}: {data.priceEarnings.toFixed(2)}
         </p>
         <p>
-          {t("earningsPerShare")}: {data.earningsPerShare.toFixed(2)}
+          {translation("earningsPerShare")}: {data.earningsPerShare.toFixed(2)}
         </p>
         <p>
-          {t("regularMarketOpen")}: {data.regularMarketOpen} {data.currency}
+          {translation("regularMarketOpen")}: {data.regularMarketOpen} {data.currency}
         </p>
       </div>
     </div>

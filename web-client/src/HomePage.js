@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { getStockData } from "./services/api";
-import { TextField, Button, CircularProgress, Typography, Container, Box } from '@mui/material';
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  TextField,
+  Button,
+  CircularProgress,
+  Typography,
+  Container,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+} from "@mui/material";
 import { useTranslation } from "react-i18next";
 import StockChart from "./components/StockChart";
 
 const HomePage = () => {
-
-  const { t } = useTranslation();
+  const { t: translation } = useTranslation();
   const [ticker, setTicker] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +28,7 @@ const HomePage = () => {
       const response = await getStockData(ticker);
       setData(response.results[0]);
     } catch (error) {
-      setError(t('error'));
+      setError(translation("error"));
     } finally {
       setLoading(false);
     }
@@ -36,11 +44,11 @@ const HomePage = () => {
         minHeight="100vh"
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          {t("title")}
+          {translation("title")}
         </Typography>
         <TextField
           fullWidth
-          label={t("input")}
+          label={translation("input")}
           variant="outlined"
           value={ticker}
           onChange={(e) => setTicker(e.target.value)}
@@ -51,16 +59,32 @@ const HomePage = () => {
           variant="contained"
           color="primary"
           fullWidth
-          style={{ marginBottom: "20px" }}
+          disabled={loading}
         >
-          {t("fetchButton")}
+          {loading ? (
+            <CircularProgress size={24} />
+          ) : (
+            translation("fetchButton")
+          )}
         </Button>
-        {loading && <CircularProgress />}
         {error && <Typography color="error">{error}</Typography>}
         {data && (
-          <Box marginTop={4} width="100%">
-            <StockChart data={data} />
-          </Box>
+          <Card style={{ marginTop: "20px", width: "100%" }}>
+            <CardContent>
+              <Box display="flex" alignItems="center" marginBottom="20px">
+                <CardMedia
+                  component="img"
+                  alt={data.shortName}
+                  style={{ height: "50px", width: "50px", marginRight: "10px" }}
+                  image={data.logourl}
+                />
+                <Typography variant="h6" component="div">
+                  {data.longName.toUpperCase()} ({data.symbol})
+                </Typography>
+              </Box>
+              <StockChart data={data} />
+            </CardContent>
+          </Card>
         )}
       </Box>
     </Container>
