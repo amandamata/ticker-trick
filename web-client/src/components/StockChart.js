@@ -7,7 +7,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -19,13 +18,12 @@ const StockChart = ({ data }) => {
       value: data.regularMarketOpen,
     },
     {
-      name: translation("currentPrice"),
+      name: translation("regularMarketPrice"),
       value: data.regularMarketPrice,
     },
   ];
   return (
     <div>
-      
       <ResponsiveContainer width="100%" height={300}>
         <LineChart
           data={chartData}
@@ -35,7 +33,6 @@ const StockChart = ({ data }) => {
           <XAxis dataKey="name" />
           <YAxis domain={["dataMin - 1", "dataMax + 1"]} />
           <Tooltip />
-          <Legend />
           <Line
             type="monotone"
             dataKey="value"
@@ -44,17 +41,6 @@ const StockChart = ({ data }) => {
           />
         </LineChart>
       </ResponsiveContainer>
-      <div>
-        <p>
-          {translation("priceEarnings")}: {data.priceEarnings.toFixed(2)}
-        </p>
-        <p>
-          {translation("earningsPerShare")}: {data.earningsPerShare.toFixed(2)}
-        </p>
-        <p>
-          {translation("regularMarketOpen")}: {data.regularMarketOpen} {data.currency}
-        </p>
-      </div>
     </div>
   );
 };
