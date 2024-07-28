@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   LineChart,
   Line,
@@ -11,49 +12,55 @@ import {
 } from "recharts";
 
 const StockChart = ({ data }) => {
+  const { t } = useTranslation();
   const chartData = [
     {
-      name: "Previous Close",
+      name: t('previousClose'),
       value: data.regularMarketPreviousClose,
     },
     {
-      name: "Current Price",
+      name: t('currentPrice'),
       value: data.regularMarketPrice,
     },
   ];
-
   return (
     <div>
       <h2>
-        {data.shortName} ({data.symbol})
+        {data.longName} ({data.symbol})
       </h2>
       <img
         src={data.logourl}
         alt={`${data.shortName} logo`}
         style={{ height: "50px" }}
       />
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={300}>
         <LineChart
           data={chartData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis domain={["dataMin - 1", "dataMax + 1"]} />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="value" stroke="#8884d8" />
+          <Line
+            type="monotone"
+            dataKey="value"
+            stroke="#8884d8"
+            activeDot={{ r: 9 }}
+          />
         </LineChart>
       </ResponsiveContainer>
       <div>
-        <p>Price Earnings: {data.priceEarnings}</p>
-        <p>Earnings Per Share: {data.earningsPerShare}</p>
-        <p>Regular Market Open: {data.regularMarketOpen}</p>
+        <p>
+          {t("priceEarnings")}: {data.priceEarnings.toFixed(2)}
+        </p>
+        <p>
+          {t("earningsPerShare")}: {data.earningsPerShare.toFixed(2)}
+        </p>
+        <p>
+          {t("regularMarketOpen")}: {data.regularMarketOpen} {data.currency}
+        </p>
       </div>
     </div>
   );

@@ -1,0 +1,13 @@
+{
+  "title": "TickerTrack",
+  "value": "Value",
+  "input": "Enter a stock ticker, for example: BBSE3",
+  "fetchButton": "Fetch",
+  "loading": "Loading...",
+  "error": "An error occurred while loading the data",
+  "previousClose": "Previous close",
+  "currentPrice": "Current price",
+  "priceEarnings": "Price Earnings",
+  "earningsPerShare": "Earnings Per Share",
+  "regularMarketOpen": "Regular Market Open"
+}
