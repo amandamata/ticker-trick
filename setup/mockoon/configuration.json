@@ -16,31 +16,31 @@
             "endpoint": "api/quote/:ticker",
             "responses": [
                 {
-                    "uuid": "8d9bc21f-c3b3-4e33-9f62-39c5973d08ad",
-                    "body": "{\"results\":[{\"currency\":\"BRL\",\"shortName\":\"BBSEGURIDADEON      NM\",\"longName\":\"BB Seguridade Participações S.A.\",\"regularMarketChange\":0.08,\"regularMarketChangePercent\":0.23600000000000002,\"regularMarketTime\":\"2024-07-15T20:07:59.000Z\",\"regularMarketPrice\":34.04,\"regularMarketDayHigh\":0,\"regularMarketDayRange\":\"0 - 0\",\"regularMarketDayLow\":0,\"regularMarketVolume\":0,\"regularMarketPreviousClose\":33.96,\"regularMarketOpen\":33.25,\"fiftyTwoWeekRange\":\"0 - 0\",\"fiftyTwoWeekLow\":0,\"fiftyTwoWeekHigh\":0,\"symbol\":\"BBSE3\",\"priceEarnings\":8.296889643546457,\"earningsPerShare\":4.0931046,\"logourl\":\"https://s3-symbol-logo.tradingview.com/banco-do-brasil--big.svg\"}],\"requestedAt\":\"2024-07-16T01:32:33.166Z\",\"took\":\"0ms\"}",
-                    "latency": 0,
-                    "statusCode": 200,
-                    "label": "",
-                    "headers": [],
-                    "bodyType": "INLINE",
-                    "filePath": "",
-                    "databucketID": "",
-                    "sendFileAsBody": false,
-                    "rules": [
-                        {
-                            "target": "header",
-                            "modifier": "Authorization",
-                            "value": "yourtoken",
-                            "invert": false,
-                            "operator": "equals"
-                        }
-                    ],
-                    "rulesOperator": "OR",
-                    "disableTemplating": false,
-                    "fallbackTo404": false,
-                    "default": true,
-                    "crudKey": "id",
-                    "callbacks": []
+                  "uuid": "8d9bc21f-c3b3-4e33-9f62-39c5973d08ad",
+                  "body": "{\"results\":[{\"currency\":\"BRL\",\"shortName\":\"BBSEGURIDADEON      NM\",\"longName\":\"BB Seguridade Participações S.A.\",\"regularMarketChange\":0.5,\"regularMarketChangePercent\":1.466,\"regularMarketTime\":\"2024-07-26T20:07:30.000Z\",\"regularMarketPrice\":34.6,\"regularMarketDayHigh\":0,\"regularMarketDayRange\":\"0 - 0\",\"regularMarketDayLow\":0,\"regularMarketVolume\":0,\"regularMarketPreviousClose\":34.1,\"regularMarketOpen\":34.13,\"fiftyTwoWeekRange\":\"0 - 0\",\"fiftyTwoWeekLow\":0,\"fiftyTwoWeekHigh\":0,\"symbol\":\"BBSE3\",\"priceEarnings\":8.45325010383328,\"earningsPerShare\":4.0931046,\"logourl\":\"https://s3-symbol-logo.tradingview.com/banco-do-brasil--big.svg\"}],\"requestedAt\":\"2024-07-28T17:44:52.152Z\",\"took\":\"0ms\"}",
+                  "latency": 0,
+                  "statusCode": 200,
+                  "label": "",
+                  "headers": [],
+                  "bodyType": "INLINE",
+                  "filePath": "",
+                  "databucketID": "",
+                  "sendFileAsBody": false,
+                  "rules": [
+                    {
+                      "target": "header",
+                      "modifier": "Authorization",
+                      "value": "yourtoken",
+                      "invert": false,
+                      "operator": "equals"
+                    }
+                  ],
+                  "rulesOperator": "OR",
+                  "disableTemplating": false,
+                  "fallbackTo404": false,
+                  "default": true,
+                  "crudKey": "id",
+                  "callbacks": []
                 }
             ],
             "responseMode": null

@@ -34,15 +34,14 @@ const Search = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="right"
-        justifyContent="right"
-        minHeight="100vh"
-      >
-        <Card style={{ marginTop: "350px", width: "70%" }}>
+    <Container
+      style={{
+        marginTop: "30px",
+        marginBottom: "30px"
+      }}
+    >
+      <Box>
+        <Card style={{ width: "100%" }}>
           <CardContent>
             <TextField
               fullWidth
@@ -59,7 +58,11 @@ const Search = () => {
               fullWidth
               disabled={loading}
             >
-              {loading ? (<CircularProgress size={24} />) : (translation("fetchButton"))}
+              {loading ? (
+                <CircularProgress size={24} />
+              ) : (
+                translation("fetchButton")
+              )}
             </Button>
             {error && <Typography color="error">{error}</Typography>}
           </CardContent>
